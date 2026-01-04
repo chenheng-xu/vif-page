@@ -83,8 +83,8 @@
                         <li><strong>Adaptive Modulation:</strong> Enhances sensitivity to high-frequency components in the frequency domain</li>
                         <li><strong>Selective Activation:</strong> Balances local time-domain and global frequency-domain information flow</li>
                     </ul>
-                    <p><strong>Results:</strong> ViF achieves state-of-the-art performance on ImageNet-1K (85.2%), COCO detection (50.1 Box mAP), 
-                    and ADE20K segmentation (52.3 mIoU) with competitive computational efficiency.</p>
+                    <p><strong>Results:</strong> ViF achieves state-of-the-art performance on ImageNet-1K image classification: 
+                    85.2% (Base), 84.5% (Small), and 83.8% (Tiny) Top-1 accuracy with competitive computational efficiency.</p>
                 </div>
             </div>
         </section>
@@ -96,21 +96,20 @@
                     <h2>Unified Time-Frequency Vision Backbone</h2>
                     <p class="teaser-description">
                         ViF introduces the first unified backbone that couples time-domain and frequency-domain analysis, 
-                        achieving state-of-the-art performance across image classification, object detection, and semantic segmentation 
-                        while maintaining competitive computational efficiency.
+                        achieving state-of-the-art performance on ImageNet-1K image classification while maintaining competitive computational efficiency.
                     </p>
                     <div class="teaser-stats">
                         <div class="stat-item">
                             <div class="stat-value">85.2%</div>
-                            <div class="stat-label">ImageNet Top-1</div>
+                            <div class="stat-label">ImageNet Top-1 (Base)</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-value">50.1</div>
-                            <div class="stat-label">COCO Box mAP</div>
+                            <div class="stat-value">84.5%</div>
+                            <div class="stat-label">ImageNet Top-1 (Small)</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-value">52.3</div>
-                            <div class="stat-label">ADE20K mIoU</div>
+                            <div class="stat-value">83.8%</div>
+                            <div class="stat-label">ImageNet Top-1 (Tiny)</div>
                         </div>
                     </div>
                 </div>
@@ -206,59 +205,10 @@
         <!-- Results -->
         <section id="results" class="section">
             <h2>Results</h2>
-            
-            <div class="results-grid">
-                <div class="result-card">
-                    <h3>ImageNet-1K Classification</h3>
-                    <div class="metric">
-                        <span class="metric-label">ViF-Tiny:</span>
-                        <span class="metric-value">83.8% Top-1</span>
-                    </div>
-                    <div class="metric">
-                        <span class="metric-label">ViF-Small:</span>
-                        <span class="metric-value">84.5% Top-1</span>
-                    </div>
-                    <div class="metric">
-                        <span class="metric-label">ViF-Base:</span>
-                        <span class="metric-value">85.2% Top-1</span>
-                    </div>
-                    <p class="result-note">Outperforms Transformer- and Mamba-based models with competitive computational efficiency</p>
-                </div>
-
-                <div class="result-card">
-                    <h3>COCO Object Detection</h3>
-                    <div class="metric">
-                        <span class="metric-label">ViF-Tiny:</span>
-                        <span class="metric-value">47.7 Box mAP</span>
-                    </div>
-                    <div class="metric">
-                        <span class="metric-label">ViF-Small:</span>
-                        <span class="metric-value">49.1 Box mAP</span>
-                    </div>
-                    <div class="metric">
-                        <span class="metric-label">ViF-Base:</span>
-                        <span class="metric-value">50.1 Box mAP</span>
-                    </div>
-                    <p class="result-note">State-of-the-art performance on dense prediction tasks</p>
-                </div>
-
-                <div class="result-card">
-                    <h3>ADE20K Segmentation</h3>
-                    <div class="metric">
-                        <span class="metric-label">ViF-Tiny:</span>
-                        <span class="metric-value">49.6 mIoU</span>
-                    </div>
-                    <div class="metric">
-                        <span class="metric-label">ViF-Small:</span>
-                        <span class="metric-value">51.3 mIoU</span>
-                    </div>
-                    <div class="metric">
-                        <span class="metric-label">ViF-Base:</span>
-                        <span class="metric-value">52.3 mIoU</span>
-                    </div>
-                    <p class="result-note">Superior performance with fewer parameters and FLOPs</p>
-                </div>
-            </div>
+            <p class="section-intro">
+                We evaluate ViF on ImageNet-1K image classification with Tiny, Small, and Base model variants. 
+                ViF consistently outperforms Transformer-, Mamba-, and CNN-based backbones across all model sizes.
+            </p>
 
             <div class="comparison-visualization">
                 <h3>Model Efficiency Comparison</h3>
@@ -266,63 +216,181 @@
                 <p class="figure-caption"><strong>Figure:</strong> Model efficiency comparison on ImageNet-1k. Throughput tested on H100 GPU with batch size 128 and input resolution 224×224.</p>
             </div>
 
+            <!-- ImageNet Classification Table -->
             <div class="comparison-table">
-                <h3>Detailed Performance Metrics</h3>
-                <p class="table-note">Throughput tested on H100 GPU with batch size 128 and input resolution 224×224</p>
+                <h3>Image Classification Performance on ImageNet-1K</h3>
                 <div class="table-wrapper">
-                    <table>
+                    <table class="results-table">
                         <thead>
                             <tr>
-                                <th>Model</th>
+                                <th>Arch.</th>
+                                <th>Method</th>
+                                <th>Image Size</th>
                                 <th>Params (M)</th>
                                 <th>FLOPs (G)</th>
                                 <th>Top-1 (%)</th>
-                                <th>Throughput (im/s)</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="highlight">
-                                <td><strong>ViF-Tiny</strong></td>
-                                <td>29</td>
-                                <td>5.1</td>
-                                <td><strong>83.8</strong></td>
-                                <td>1549</td>
-                            </tr>
-                            <tr class="highlight">
-                                <td><strong>ViF-Small</strong></td>
-                                <td>45</td>
-                                <td>7.8</td>
-                                <td><strong>84.5</strong></td>
-                                <td>-</td>
-                            </tr>
-                            <tr class="highlight">
-                                <td><strong>ViF-Base</strong></td>
-                                <td>96</td>
-                                <td>16.7</td>
-                                <td><strong>85.2</strong></td>
-                                <td>-</td>
+                            <tr class="arch-header"><td colspan="6"><strong>CNN</strong></td></tr>
+                            <tr><td></td><td>RegNetY-4G</td><td>224²</td><td>21</td><td>4.0</td><td>80.0</td></tr>
+                            <tr><td></td><td>RegNetY-8G</td><td>224²</td><td>39</td><td>8.0</td><td>81.7</td></tr>
+                            <tr><td></td><td>RegNetY-16G</td><td>224²</td><td>84</td><td>16.0</td><td>82.9</td></tr>
+                            <tr><td></td><td>ConvNeXt-T</td><td>224²</td><td>29</td><td>4.5</td><td>82.1</td></tr>
+                            <tr><td></td><td>ConvNeXt-S</td><td>224²</td><td>50</td><td>8.7</td><td>83.1</td></tr>
+                            <tr><td></td><td>ConvNeXt-B</td><td>224²</td><td>89</td><td>15.4</td><td>83.8</td></tr>
+                            <tr><td></td><td>MambaOut-T</td><td>224²</td><td>27</td><td>4.5</td><td>82.7</td></tr>
+                            <tr><td></td><td>MambaOut-S</td><td>224²</td><td>48</td><td>9.0</td><td>84.1</td></tr>
+                            <tr><td></td><td>MambaOut-B</td><td>224²</td><td>85</td><td>15.8</td><td>84.2</td></tr>
+                            <tr class="arch-header"><td colspan="6"><strong>Transformer</strong></td></tr>
+                            <tr><td></td><td>ViT-B/16</td><td>384²</td><td>86</td><td>55.4</td><td>77.9</td></tr>
+                            <tr><td></td><td>DeiT-S</td><td>224²</td><td>22</td><td>4.6</td><td>79.8</td></tr>
+                            <tr><td></td><td>DeiT-B</td><td>224²</td><td>87</td><td>16.9</td><td>81.8</td></tr>
+                            <tr><td></td><td>Swin-T</td><td>224²</td><td>28</td><td>4.5</td><td>81.3</td></tr>
+                            <tr><td></td><td>Swin-S</td><td>224²</td><td>50</td><td>8.7</td><td>83.0</td></tr>
+                            <tr><td></td><td>Swin-B</td><td>224²</td><td>88</td><td>15.4</td><td>83.5</td></tr>
+                            <tr><td></td><td>Swin2-T</td><td>256²</td><td>28</td><td>4.8</td><td>82.7</td></tr>
+                            <tr><td></td><td>Swin2-S</td><td>256²</td><td>50</td><td>8.5</td><td>83.5</td></tr>
+                            <tr><td></td><td>Swin2-B</td><td>256²</td><td>88</td><td>15.1</td><td>84.6</td></tr>
+                            <tr><td></td><td>Twins-S</td><td>224²</td><td>24</td><td>2.8</td><td>81.7</td></tr>
+                            <tr><td></td><td>Twins-B</td><td>224²</td><td>56</td><td>8.3</td><td>83.1</td></tr>
+                            <tr><td></td><td>NAT-T</td><td>224²</td><td>28</td><td>4.3</td><td>83.2</td></tr>
+                            <tr><td></td><td>NAT-S</td><td>224²</td><td>51</td><td>7.8</td><td>83.0</td></tr>
+                            <tr><td></td><td>NAT-B</td><td>224²</td><td>90</td><td>13.7</td><td>84.3</td></tr>
+                            <tr class="arch-header"><td colspan="6"><strong>Mamba</strong></td></tr>
+                            <tr><td></td><td>ViM-S/16</td><td>224²</td><td>26</td><td>5.1</td><td>80.3</td></tr>
+                            <tr><td></td><td>VMamba-T</td><td>224²</td><td>30</td><td>4.9</td><td>82.6</td></tr>
+                            <tr><td></td><td>VMamba-S</td><td>224²</td><td>50</td><td>8.7</td><td>83.6</td></tr>
+                            <tr><td></td><td>VMamba-B</td><td>224²</td><td>89</td><td>15.4</td><td>83.9</td></tr>
+                            <tr><td></td><td>LocalVMamba-T</td><td>224²</td><td>26</td><td>5.7</td><td>82.7</td></tr>
+                            <tr><td></td><td>LocalVMamba-S</td><td>224²</td><td>50</td><td>11.4</td><td>83.7</td></tr>
+                            <tr><td></td><td>EfficientVMamba-S</td><td>224²</td><td>11</td><td>1.3</td><td>78.7</td></tr>
+                            <tr><td></td><td>EfficientVMamba-B</td><td>224²</td><td>33</td><td>4.0</td><td>81.8</td></tr>
+                            <tr><td></td><td>MambaVision-T</td><td>224²</td><td>32</td><td>4.4</td><td>82.3</td></tr>
+                            <tr><td></td><td>MambaVision-S</td><td>224²</td><td>50</td><td>7.5</td><td>83.3</td></tr>
+                            <tr><td></td><td>MambaVision-B</td><td>224²</td><td>98</td><td>15.0</td><td>84.2</td></tr>
+                            <tr class="arch-header"><td colspan="6"><strong>Fourier</strong></td></tr>
+                            <tr><td></td><td>GFNet-S</td><td>224²</td><td>25</td><td>4.5</td><td>80.0</td></tr>
+                            <tr><td></td><td>GFNet-B</td><td>224²</td><td>43</td><td>7.9</td><td>80.7</td></tr>
+                            <tr><td></td><td>GFNet2-S</td><td>384²</td><td>28</td><td>13.2</td><td>81.7</td></tr>
+                            <tr><td></td><td>GFNet2-B</td><td>384²</td><td>47</td><td>23.3</td><td>82.1</td></tr>
+                            <tr class="highlight"><td></td><td><strong>ViF-T</strong></td><td>224²</td><td>29</td><td>5.1</td><td><strong>83.8</strong></td></tr>
+                            <tr class="highlight"><td></td><td><strong>ViF-S</strong></td><td>224²</td><td>45</td><td>7.8</td><td><strong>84.5</strong></td></tr>
+                            <tr class="highlight"><td></td><td><strong>ViF-B</strong></td><td>224²</td><td>96</td><td>16.7</td><td><strong>85.2</strong></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- COCO Detection Table -->
+            <div class="comparison-table">
+                <h3>Object Detection Performance on COCO</h3>
+                <div class="table-wrapper">
+                    <table class="results-table">
+                        <thead>
+                            <tr>
+                                <th colspan="9"><strong>Mask R-CNN 1× schedule</strong></th>
                             </tr>
                             <tr>
-                                <td>Swin-T</td>
-                                <td>28</td>
-                                <td>4.5</td>
-                                <td>81.3</td>
-                                <td>1217</td>
+                                <th>Backbone</th>
+                                <th>AP<sup>b</sup>↑</th>
+                                <th>AP<sup>b</sup><sub>50</sub>↑</th>
+                                <th>AP<sup>b</sup><sub>75</sub>↑</th>
+                                <th>AP<sup>m</sup>↑</th>
+                                <th>AP<sup>m</sup><sub>50</sub>↑</th>
+                                <th>AP<sup>m</sup><sub>75</sub>↑</th>
+                                <th>Params</th>
+                                <th>FLOPs</th>
                             </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>ResNet-50</td><td>38.2</td><td>58.8</td><td>41.4</td><td>34.7</td><td>55.7</td><td>37.2</td><td>44M</td><td>260G</td></tr>
+                            <tr><td>Swin-T</td><td>42.7</td><td>65.2</td><td>46.8</td><td>39.3</td><td>62.2</td><td>42.2</td><td>48M</td><td>267G</td></tr>
+                            <tr><td>ConvNeXt-T</td><td>44.2</td><td>66.6</td><td>48.3</td><td>40.1</td><td>63.3</td><td>42.8</td><td>48M</td><td>262G</td></tr>
+                            <tr><td>PVTv2-B2</td><td>45.3</td><td>66.1</td><td>49.6</td><td>41.2</td><td>64.2</td><td>44.4</td><td>45M</td><td>309G</td></tr>
+                            <tr><td>ViT-Adapter-S</td><td>44.7</td><td>65.8</td><td>48.3</td><td>39.9</td><td>62.5</td><td>42.8</td><td>48M</td><td>403G</td></tr>
+                            <tr><td>MambaOut-T</td><td>45.1</td><td>67.3</td><td>49.6</td><td>41.0</td><td>64.1</td><td>44.1</td><td>43M</td><td>262G</td></tr>
+                            <tr><td>VMamba-T</td><td>47.3</td><td>69.3</td><td>52.0</td><td>42.7</td><td>66.4</td><td>45.9</td><td>50M</td><td>271G</td></tr>
+                            <tr><td>LocalVMamba-T</td><td>46.7</td><td>68.7</td><td>50.8</td><td>42.2</td><td>65.7</td><td>45.5</td><td>45M</td><td>291G</td></tr>
+                            <tr class="highlight"><td><strong>ViF-T</strong></td><td><strong>47.7</strong></td><td><strong>70.0</strong></td><td><strong>52.1</strong></td><td><strong>43.0</strong></td><td><strong>66.7</strong></td><td><strong>46.5</strong></td><td>48M</td><td>272G</td></tr>
+                            <tr class="table-divider"><td colspan="9"></td></tr>
+                            <tr><td>ResNet-101</td><td>38.2</td><td>58.8</td><td>41.4</td><td>34.7</td><td>55.7</td><td>37.2</td><td>63M</td><td>336G</td></tr>
+                            <tr><td>Swin-S</td><td>44.8</td><td>68.6</td><td>49.4</td><td>40.9</td><td>65.3</td><td>44.2</td><td>69M</td><td>354G</td></tr>
+                            <tr><td>ConvNeXt-S</td><td>45.4</td><td>67.9</td><td>50.0</td><td>41.8</td><td>65.2</td><td>45.1</td><td>70M</td><td>348G</td></tr>
+                            <tr><td>PVTv2-B3</td><td>47.0</td><td>68.1</td><td>51.7</td><td>42.5</td><td>65.2</td><td>45.7</td><td>63M</td><td>397G</td></tr>
+                            <tr><td>MambaOut-S</td><td>47.4</td><td>69.1</td><td>52.4</td><td>42.7</td><td>66.1</td><td>46.2</td><td>65M</td><td>354G</td></tr>
+                            <tr><td>VMamba-S</td><td>48.7</td><td>70.0</td><td>53.4</td><td>43.7</td><td>67.3</td><td>47.0</td><td>70M</td><td>349G</td></tr>
+                            <tr><td>LocalVMamba-S</td><td>48.4</td><td>69.9</td><td>52.7</td><td>43.2</td><td>66.7</td><td>46.5</td><td>69M</td><td>414G</td></tr>
+                            <tr class="highlight"><td><strong>ViF-S</strong></td><td><strong>49.1</strong></td><td><strong>70.4</strong></td><td><strong>53.5</strong></td><td><strong>44.0</strong></td><td><strong>67.6</strong></td><td><strong>47.5</strong></td><td>64M</td><td>328G</td></tr>
+                            <tr class="table-divider"><td colspan="9"></td></tr>
+                            <tr><td>Swin-B</td><td>46.9</td><td>-</td><td>-</td><td>42.3</td><td>66.3</td><td>46.0</td><td>88M</td><td>496G</td></tr>
+                            <tr><td>ConvNeXt-B</td><td>47.0</td><td>69.4</td><td>51.7</td><td>42.7</td><td>66.3</td><td>46.0</td><td>107M</td><td>486G</td></tr>
+                            <tr><td>PVTv2-B5</td><td>47.4</td><td>68.6</td><td>51.9</td><td>42.5</td><td>65.7</td><td>46.0</td><td>102M</td><td>557G</td></tr>
+                            <tr><td>ViT-Adapter-B</td><td>47.0</td><td>68.2</td><td>51.4</td><td>41.8</td><td>65.1</td><td>44.9</td><td>102M</td><td>557G</td></tr>
+                            <tr><td>MambaOut-B</td><td>47.4</td><td>69.3</td><td>52.2</td><td>43.0</td><td>66.4</td><td>46.3</td><td>100M</td><td>495G</td></tr>
+                            <tr><td>VMamba-B</td><td>49.2</td><td>71.4</td><td>54.0</td><td>44.1</td><td>68.3</td><td>47.7</td><td>108M</td><td>485G</td></tr>
+                            <tr class="highlight"><td><strong>ViF-B</strong></td><td><strong>50.1</strong></td><td><strong>71.3</strong></td><td><strong>54.8</strong></td><td><strong>44.6</strong></td><td><strong>68.5</strong></td><td><strong>48.1</strong></td><td>120M</td><td>517G</td></tr>
+                            <tr class="table-divider"><td colspan="9"></td></tr>
+                            <tr><td colspan="9"><strong>Mask R-CNN 3× MS schedule</strong></td></tr>
+                            <tr class="table-divider"><td colspan="9"></td></tr>
+                            <tr><td>Swin-T</td><td>46.0</td><td>68.1</td><td>50.3</td><td>41.6</td><td>65.1</td><td>44.9</td><td>48M</td><td>267G</td></tr>
+                            <tr><td>ConvNeXt-T</td><td>46.2</td><td>67.9</td><td>50.8</td><td>41.7</td><td>65.0</td><td>44.9</td><td>48M</td><td>262G</td></tr>
+                            <tr><td>NAT-T</td><td>47.7</td><td>69.0</td><td>52.6</td><td>42.6</td><td>66.1</td><td>45.9</td><td>48M</td><td>258G</td></tr>
+                            <tr><td>VMamba-T</td><td>48.8</td><td>70.4</td><td>53.5</td><td>43.7</td><td>67.4</td><td>47.0</td><td>50M</td><td>271G</td></tr>
+                            <tr><td>LocalVMamba-T</td><td>48.7</td><td>70.1</td><td>53.0</td><td>43.4</td><td>67.0</td><td>46.4</td><td>45M</td><td>291G</td></tr>
+                            <tr class="highlight"><td><strong>ViF-T</strong></td><td><strong>48.9</strong></td><td><strong>70.3</strong></td><td><strong>53.6</strong></td><td><strong>43.4</strong></td><td><strong>67.5</strong></td><td><strong>46.5</strong></td><td>48M</td><td>272G</td></tr>
+                            <tr class="table-divider"><td colspan="9"></td></tr>
+                            <tr><td>Swin-S</td><td>48.2</td><td>69.8</td><td>52.8</td><td>43.2</td><td>67.0</td><td>46.1</td><td>69M</td><td>354G</td></tr>
+                            <tr><td>ConvNeXt-S</td><td>47.9</td><td>70.0</td><td>52.7</td><td>42.9</td><td>66.9</td><td>46.2</td><td>70M</td><td>348G</td></tr>
+                            <tr><td>NAT-S</td><td>48.4</td><td>69.8</td><td>53.2</td><td>43.2</td><td>66.9</td><td>46.5</td><td>70M</td><td>330G</td></tr>
+                            <tr><td>VMamba-S</td><td>49.9</td><td>70.9</td><td>54.7</td><td>44.2</td><td>68.2</td><td>47.7</td><td>70M</td><td>349G</td></tr>
+                            <tr><td>LocalVMamba-S</td><td>49.9</td><td>70.5</td><td>54.4</td><td>44.1</td><td>67.8</td><td>47.4</td><td>69M</td><td>414G</td></tr>
+                            <tr class="highlight"><td><strong>ViF-S</strong></td><td><strong>50.1</strong></td><td><strong>71.4</strong></td><td><strong>54.9</strong></td><td><strong>44.4</strong></td><td><strong>68.3</strong></td><td><strong>47.9</strong></td><td>64M</td><td>328G</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- ADE20K Segmentation Table -->
+            <div class="comparison-table">
+                <h3>Semantic Segmentation Performance on ADE20K</h3>
+                <div class="table-wrapper">
+                    <table class="results-table">
+                        <thead>
                             <tr>
-                                <td>VMamba-T</td>
-                                <td>30</td>
-                                <td>4.9</td>
-                                <td>82.6</td>
-                                <td>1243</td>
+                                <th>Method</th>
+                                <th>Crop size</th>
+                                <th>mIoU (SS) ↑</th>
+                                <th>mIoU (MS) ↑</th>
+                                <th>Params.</th>
+                                <th>FLOPs</th>
                             </tr>
-                            <tr>
-                                <td>ConvNeXt-T</td>
-                                <td>29</td>
-                                <td>4.5</td>
-                                <td>82.1</td>
-                                <td>1286</td>
-                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>DeiT-S + MLN</td><td>512²</td><td>43.1</td><td>43.8</td><td>58M</td><td>1217G</td></tr>
+                            <tr><td>Swin-T</td><td>512²</td><td>44.4</td><td>45.8</td><td>60M</td><td>945G</td></tr>
+                            <tr><td>ConvNeXt-T</td><td>512²</td><td>46.0</td><td>46.7</td><td>60M</td><td>939G</td></tr>
+                            <tr><td>NAT-T</td><td>512²</td><td>47.1</td><td>48.4</td><td>58M</td><td>934G</td></tr>
+                            <tr><td>MambaOut-T</td><td>512²</td><td>47.4</td><td>48.6</td><td>54M</td><td>938G</td></tr>
+                            <tr><td>VMamba-T</td><td>512²</td><td>48.0</td><td>48.8</td><td>62M</td><td>949G</td></tr>
+                            <tr><td>LocalVMamba-T</td><td>512²</td><td>47.9</td><td>49.1</td><td>57M</td><td>970G</td></tr>
+                            <tr class="highlight"><td><strong>ViF-T</strong></td><td>512²</td><td><strong>48.7</strong></td><td><strong>49.6</strong></td><td>58M</td><td>948G</td></tr>
+                            <tr class="table-divider"><td colspan="6"></td></tr>
+                            <tr><td>DeiT-B + MLN</td><td>512²</td><td>45.5</td><td>47.2</td><td>144M</td><td>2007G</td></tr>
+                            <tr><td>Swin-S</td><td>512²</td><td>47.6</td><td>49.5</td><td>81M</td><td>1039G</td></tr>
+                            <tr><td>ConvNeXt-S</td><td>512²</td><td>48.7</td><td>49.6</td><td>82M</td><td>1027G</td></tr>
+                            <tr><td>NAT-S</td><td>512²</td><td>48.0</td><td>49.5</td><td>82M</td><td>1010G</td></tr>
+                            <tr><td>MambaOut-S</td><td>512²</td><td>49.5</td><td>50.6</td><td>76M</td><td>1032G</td></tr>
+                            <tr><td>VMamba-S</td><td>512²</td><td>50.6</td><td>51.2</td><td>82M</td><td>1028G</td></tr>
+                            <tr><td>LocalVMamba-S</td><td>512²</td><td>50.0</td><td>51.0</td><td>81M</td><td>1095G</td></tr>
+                            <tr class="highlight"><td><strong>ViF-S</strong></td><td>512²</td><td><strong>50.5</strong></td><td><strong>51.3</strong></td><td>76M</td><td>1009G</td></tr>
+                            <tr class="table-divider"><td colspan="6"></td></tr>
+                            <tr><td>Swin-B</td><td>512²</td><td>48.1</td><td>49.7</td><td>121M</td><td>1188G</td></tr>
+                            <tr><td>ConvNeXt-B</td><td>512²</td><td>49.1</td><td>49.9</td><td>122M</td><td>1170G</td></tr>
+                            <tr><td>NAT-B</td><td>512²</td><td>48.5</td><td>49.7</td><td>123M</td><td>1137G</td></tr>
+                            <tr><td>MambaOut-B</td><td>512²</td><td>49.6</td><td>51.0</td><td>112M</td><td>1178G</td></tr>
+                            <tr><td>VMamba-B</td><td>512²</td><td>51.0</td><td>51.6</td><td>122M</td><td>1170G</td></tr>
+                            <tr class="highlight"><td><strong>ViF-B</strong></td><td>512²</td><td><strong>51.3</strong></td><td><strong>52.3</strong></td><td>131M</td><td>1200G</td></tr>
                         </tbody>
                     </table>
                 </div>

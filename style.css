@@ -793,6 +793,53 @@ tbody tr.highlight:hover {
     background-color: #bfdbfe;
 }
 
+tr.arch-header {
+    background-color: var(--bg-light);
+    font-weight: 600;
+}
+
+tr.arch-header td {
+    padding: 0.75rem 1rem;
+    border-bottom: 2px solid var(--border-color);
+    font-size: 0.95rem;
+}
+
+tr.table-divider td {
+    padding: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--bg-light);
+}
+
+.results-table {
+    font-size: 0.9rem;
+}
+
+.results-table th,
+.results-table td {
+    padding: 0.6rem 0.8rem;
+    text-align: center;
+}
+
+.results-table th:first-child,
+.results-table td:first-child {
+    text-align: left;
+}
+
+.results-table thead th {
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+.results-table sup {
+    font-size: 0.7em;
+    vertical-align: super;
+}
+
+.results-table sub {
+    font-size: 0.7em;
+    vertical-align: sub;
+}
+
 /* Architecture List */
 .architecture-list {
     list-style: none;

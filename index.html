@@ -31,23 +31,27 @@
             <h1 class="title">Fourier Neural Filter as<br>Generic Vision Backbone</h1>
             <div class="authors">
                 <div class="author-row">
-                    <span class="author"><strong>Chenheng Xu</strong><sup>1,2,3,4</sup></span>
-                    <span class="author"><strong>Yuanhao Ban</strong><sup>2</sup></span>
-                    <span class="author"><strong>Dan Wu</strong><sup>2</sup></span>
+                    <span class="author"><strong>Chenheng Xu</strong><sup>1,2,3,5,6</sup></span>
+                    <span class="author"><strong>Yuanhao Ban</strong><sup>4</sup></span>
+                    <span class="author"><strong>Dan Wu</strong><sup>3</sup></span>
                 </div>
                 <div class="author-row">
-                    <span class="author"><strong>Cho-Jui Hsieh</strong><sup>2,✉</sup></span>
-                    <span class="author"><strong>Ying Nian Wu</strong><sup>2,✉</sup></span>
-                    <span class="author"><strong>Yixin Zhu</strong><sup>1,3,4,✉</sup></span>
+                    <span class="author"><strong>Cho-Jui Hsieh</strong><sup>4,✉</sup></span>
+                    <span class="author"><strong>Ying Nian Wu</strong><sup>3,✉</sup></span>
+                    <span class="author"><strong>Yixin Zhu</strong><sup>2,1,5,6,✉</sup></span>
                 </div>
                 <div class="affiliations">
                     <div class="affil-row">
-                        <sup>1</sup>Peking University
-                        <sup>2</sup>University of California, Los Angeles
+                        <sup>1</sup>Institute for AI, Peking University
+                        <sup>2</sup>School of Psychological and Cognitive Sciences, Peking University
                     </div>
                     <div class="affil-row">
-                        <sup>3</sup>State Key Lab of General AI, Peking University
-                        <sup>4</sup>Beijing Key Laboratory of Behavior and Mental Health, Peking University
+                        <sup>3</sup>Department of Statistics & Data Science, UCLA
+                        <sup>4</sup>Department of Computer Science, UCLA
+                    </div>
+                    <div class="affil-row">
+                        <sup>5</sup>State Key Lab of General AI, Peking University
+                        <sup>6</sup>Beijing Key Laboratory of Behavior and Mental Health, Peking University
                     </div>
                 </div>
             </div>
@@ -120,25 +124,27 @@
         <section id="abstract" class="section">
             <h2>Abstract</h2>
             <p class="abstract">
-                Effective information extraction has long been a central challenge in Computer Vision. 
-                Transformer- and Mamba-based backbones have significantly advanced this field by providing 
-                powerful long-range modeling capability, even though they are initially developed for Natural 
-                Language Processing. Recent progress has highlighted the potential of Fourier Neural Operator (FNO), 
-                which, with its favorable quasi-linear complexity and strong global modeling capacity, offers a 
-                promising alternative for visual representation learning. However, FNO exhibits a fundamental 
-                limitation in capturing local high-frequency patterns due to the over-smoothing effect and bandwidth 
-                bottleneck.
+                Effective information extraction remains a central challenge in Computer Vision (CV). While 
+                Transformer- and Mamba-based backbones have significantly advanced this field by providing powerful 
+                long-range modeling capability, they inherit architectural designs from Natural Language Processing (NLP) 
+                that may not optimally align with the inherent spatial structure of 2D visual representations. Recent 
+                progress has highlighted the potential of Fourier Neural Operator (FNO), which, with its favorable 
+                quasi-linear complexity and strong global modeling capacity, offers a promising alternative for visual 
+                representation learning; however, FNO exhibits fundamental limitations in capturing local high-frequency 
+                patterns due to the over-smoothing effect and bandwidth bottleneck.
             </p>
             <p class="abstract">
-                To address this limitation, we propose <strong>Vision Filter (ViF)</strong>, as a generic backbone 
-                for Computer Vision, consisting of two complementary components: <strong>adaptive modulation</strong> 
-                for enhancing sensitivity to high-frequency component in the frequency domain, and 
-                <strong>selective activation</strong> for balancing local time-domain and global frequency-domain 
-                information flow. Extensive experiments reveal that ViF consistently outperforms prominent variants 
-                of Transformer- and Mamba-based backbones across diverse visual tasks, including image classification, 
-                object detection, and semantic segmentation. ViF demonstrates lower computational complexity than 
-                Transformer-based models and better structural modeling than Mamba-based models, which suffer from 
-                spatial disruption due to their directional scanning mechanism.
+                To address these limitations, we propose <strong>Vision Filter (ViF)</strong>, a generic backbone for 
+                CV, consisting of two synergistic components: <strong>Adaptive Modulation (AM)</strong> for flexibly 
+                enhancing sensitivity to high-frequency components in the frequency domain, and 
+                <strong>Selective Activation (SA)</strong> for dynamically balancing local time-domain and global 
+                frequency-domain information flow. Extensive experiments demonstrate that ViF consistently outperforms 
+                prominent variants of Transformer- and Mamba-based backbones across diverse visual tasks, including 
+                image classification, object detection, and semantic segmentation. ViF achieves lower computational 
+                complexity than Transformer-based models and better structural modeling than Mamba-based models, which 
+                suffer from spatial disruption due to their directional scanning mechanism. The joint time- and 
+                frequency-domain mechanism introduced in ViF establishes a promising paradigm for effective visual 
+                representation learning, bridging local high-frequency information with global low-frequency information.
             </p>
         </section>
 

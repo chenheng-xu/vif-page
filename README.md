@@ -2,7 +2,7 @@
 
 [![Paper](https://img.shields.io/badge/Paper-arXiv-red)](https://arxiv.org/abs/XXXX.XXXXX)
 [![Code](https://img.shields.io/badge/Code-GitHub-blue)](https://github.com/chenheng-xu/fnf-vision-code)
-[![Project Page](https://img.shields.io/badge/Project-Page-green)](https://chenheng-xu.github.io/fnf-vision-page/)
+[![Project Page](https://img.shields.io/badge/Project-Page-green)](https://chenheng-xu.github.io/vif-page/)
 [![ICLR 2026](https://img.shields.io/badge/ICLR-2026-blue)](https://iclr.cc/)
 
 Official project page for **Fourier Neural Filter as Generic Vision Backbone** (ICLR 2026).
@@ -57,7 +57,7 @@ This project page includes:
 
 - 📄 [Paper](https://arxiv.org/abs/XXXX.XXXXX) (Coming soon)
 - 💻 [Code](https://github.com/chenheng-xu/fnf-vision-code)
-- 🌐 [Project Page](https://chenheng-xu.github.io/fnf-vision-page/)
+- 🌐 [Project Page](https://chenheng-xu.github.io/vif-page/)
 
 ## 📖 Citation
 

@@ -550,6 +550,23 @@ img {
     margin: 2rem 0;
 }
 
+.analysis-single {
+    text-align: center;
+    margin: 1.5rem 0;
+}
+
+.analysis-combined-img {
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    border-radius: 0.5rem;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-lg);
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
 .analysis-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
